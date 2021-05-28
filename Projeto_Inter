@@ -1,0 +1,248 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<locale.h>
+#include<ctype.h>
+#include<string.h>
+
+int main(){
+    setlocale(LC_ALL, "Portuguese");
+    char nome[30], cpf[11], email[30], doacao[20], feedback[200]; //cadastro
+    char sexo, novoregistro, novaDoacao, novoFeedback, continuar, continuarGenero;
+    int interface, genero;
+
+    printf("_____________________________________\n");
+    printf("Seja bem vindo a Leitura Criativa\n");
+    printf("_____________________________________\n"); 
+    printf("Vamos come�ar o seu cadastro...\n");       
+    
+    
+    do{
+        printf("__________________\n");
+        printf("Digite o seu nome:\n");
+        //scanf("%s", &nome);
+        fgets(nome, 30, stdin);
+        fflush(stdin); 
+        if (strlen(nome)<1){		
+            printf("Nome inv�lido!!\n");
+            printf("Tente novamente\n");
+    }
+    }while(strlen(nome)<1);
+
+    do{
+        printf("___________________\n");
+        printf("Digite o seu email:\n");
+        scanf("%s", &email);            
+        fflush(stdin); 
+        if (strlen(email)<1){		
+            printf("Email inv�lido!!\n");
+            printf("Tente novamente\n");
+    }
+    }while(strlen(email)<1);
+
+    do{
+        printf("_________________\n");
+        printf("Digite o seu CPF:\n");
+        scanf("%s", &cpf);            
+        fflush(stdin); 
+        if (strlen(cpf)<1){
+            printf("CPF inv�lido!!\n");
+            printf("Tente novamente\n");
+    }
+    }while(strlen(cpf)<1);
+
+    do{
+        printf("__________________\n");
+        printf("Digite o seu sexo:\n M - Masculino\n F - feminino\n");
+        scanf("%c", &sexo);            
+        fflush(stdin); 
+        sexo = toupper (sexo);
+        if (sexo!='M' && sexo!= 'F'){
+            printf("Sexo inv�lido!!\n");
+            printf("Tente novamente\n");
+    	}
+    }while(sexo!='M' && sexo!= 'F');
+
+    system("cls");
+    do{	
+    printf("____________________________\n");
+    printf("Seja bem vindo a interface!!\n");
+    printf("____________________________\n");
+    
+    do{
+        printf("1 - Acessar o cat�logo\n");
+        printf("2 - Fa�a uma doa��o\n");        
+        printf("3 - Dar um feedback\n");
+        printf("4 - Finalizar e sess�o\n"); 
+        printf("____________________________\n"); 
+        printf("Digite o que voc� deseja fazer:\n");
+        scanf("%d", &interface);
+        if(interface < 1 || interface > 4)
+        printf("Op��o inv�lida!!\n Digite novamente:\n");
+    }while(interface < 1 || interface > 4);
+
+    system("cls");
+ 
+    switch (interface){
+    case 1: 
+	do{	  	
+	system("cls");
+        printf("________\n");
+        printf("CAT�LOGO\n");
+        printf("________\n"); 		
+		do{
+            printf("1 - Romance\n");
+            printf("2 - A��o e Aventura\n");
+            printf("3 - Manga\n");
+            printf("4 - Terror e Suspense\n");
+            printf("5 - Infantil\n");
+            printf("______________________\n");
+            printf("Digite o g�nero que deseja:\n");
+            scanf("%d", &genero); 
+            if(interface < 1 || interface > 5){	
+				printf("__________________\n");		
+                printf("G�nero inv�lido!!\n");
+                printf("Digite novamente:\n");
+        }
+        }while(interface < 1 || interface > 5);
+        
+        system("cls");
+        
+        switch(genero){
+        case 1: 		
+            printf("__________________________________\n");
+            printf("Mais procurados do g�nero Romance\n");
+            printf("__________________________________\n\n");
+            printf("1) Simplesmente acontece - Cecelia Ahern\n");
+            printf("2) Como Eu Era Antes de Voc� - Jojo Moyes\n");
+            printf("3) Di�rio de Uma Paix�o - Nicholas Sparks\n");
+            printf("4) A Culpa � das Estrelas - John Green\n");
+            printf("5) Os Miser�veis - Victor Hugo\n"); 
+			printf("__________________________________\n\n");					
+			scanf("%c", &continuarGenero);      
+        break;
+
+        case 2:
+            printf("___________________________________________\n");
+            printf("Mais procurados do g�nero A��o e Aventura\n");
+            printf("___________________________________________\n\n");
+            printf("1) O Hobbit - J. R. R. Tolkien\n");
+            printf("2) As Cr�nicas de N�rnia - C. S. Lewis\n");
+            printf("3) Harry Potter - J. K. Rowling\n");
+            printf("4) Star Wars - Chuck Wendig\n");
+            printf("5) Percy Jackson - Rick Riordan\n");
+			printf("__________________________________\n\n"); 
+			scanf("%c", &continuarGenero);         
+        break;        
+
+        case 3:
+            printf("_____________________________________\n");
+            printf("Mais procurados do g�nero Manga\n");
+            printf("_____________________________________\n\n");
+            printf("1) One Piece - Eiichiro Oda\n");
+            printf("2) Dragon Ball - Akira Toriyama\n");
+            printf("3) Naruto - Masashi Kishimoto\n");
+            printf("4) Astro Boy - Osamu Tezuka,  David Bowers\n");
+            printf("5) Attack on Titan -  Hajime Isayama, Ryo Suzukaze, Gun Snark\n");
+            printf("__________________________________\n\n");
+            scanf("%c", &continuarGenero);  
+        break;
+
+        case 4:
+            printf("_____________________________________\n");
+            printf("Mais procurados do g�nero Terror e Suspense\n");
+            printf("_____________________________________\n\n");
+            printf("1) Horror em Amityville - Jay Anson\n");
+            printf("2) O Beb� de Rosemary - Ira Levin\n");
+            printf("3) O Exorcista - William Peter Blatty\n");
+            printf("4) A Coisa - Stephen King\n");
+            printf("5) O Iluminado -  Stephen King\n");
+            printf("__________________________________\n\n");
+            scanf("%c", &continuarGenero);  
+        break;
+
+        case 5:
+            printf("_____________________________________\n");
+            printf("Mais procurados do g�nero Infantil\n");
+            printf("_____________________________________\n\n");
+            printf("1) O Pequeno Pr�ncipe - Antoine de Saint-Exup�ry\n");
+            printf("2) Alice no Pa�s das Maravilhas - Lewis Carroll\n");
+            printf("3) O Patinho Feio - Hans Christian Andersen\n");
+            printf("4) Viagem ao Centro da Terra - J�lio Verne\n");
+            printf("5) As Aventuras de Pin�quio -  Carlo Collodi\n");
+            printf("___________________________________________\n\n");
+			scanf("%c", &continuarGenero);              
+        break;	
+    }
+    	
+            printf("Deseja selecionar outro g�nero?\n");
+            printf("Digite S - caso queira ou N - para voltar para interface\n");
+            scanf("%c", &continuar);
+            continuar=toupper(continuar);
+    
+	}while(continuar == 'S');	
+
+system("cls");
+		
+    break; 
+
+    case 2:
+        printf("________________\n");
+        printf("Doa��o de livro\n");
+        printf("________________\n\n");
+        do{
+            do{
+                printf("Digite o nome do livro que voc� gostaria de doar:\n");
+                scanf("%s", &doacao); 
+                fgets(doacao, 20, stdin);
+                fflush(stdin);
+                if(strlen(nome)<1){
+                    printf("Nome do livro inv�lido!!\n");
+                    printf("Digite novamente:\n"); 
+			}
+            }while(strlen(nome)<1);
+            printf("______________________________________________\n");
+            printf("Deseja doar outro livro?\n");
+            printf("Digite S - caso queira ou N - para continuar\n");
+            scanf("%c", &novaDoacao);
+            novaDoacao=toupper(novaDoacao);
+        }while(novaDoacao == 'S');        
+    
+system("cls");	
+
+	break; 
+
+    case 3:
+        do{
+            do{
+            printf("________\n");
+            printf("Feedback\n");
+            printf("________\n\n");
+            printf("O que voc� est� achando da livraria?\nN�s de um eleogio ou diga no que podemos melhorar:\n");            
+            scanf("%s", feedback);
+            fgets(feedback, 200, stdin);
+            fflush(stdin);
+            if(strlen(nome)<1)
+                printf("Feedback vazio\n Tente novamente:\n");
+            }while(strlen(nome)<1);
+            printf("________________________________________\n");
+            printf("Deseja fazer outro feedback?\n");
+            printf("Digite S - caso queira ou N - para continuar\n");
+            scanf("%c", &novoFeedback);
+           novoFeedback=toupper(novoFeedback);
+        }while(novoFeedback == 'S');          
+    
+system("cls");
+	
+	break;
+
+
+
+    case 4: 
+        printf("________________________________________\n");
+        printf("Obrigado pela visita!!\n Volte sempre!!\n");        
+        printf("________________________________________\n");           
+    break; 
+    }
+	}while(interface!=4);
+return 0;
+}
